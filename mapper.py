@@ -1,3 +1,16 @@
 #!/usr/bin/env python
-"""mapper.py - This mapper script reads text input from standard input.
-"""
+import sys
+import re
+
+#pattern to match key-value pairs
+pattern = r'(\w+),(.+)'
+
+for line in sys.stdin:
+    line = line.strip()
+    match = re.search(pattern, line)
+    if match:
+        key = match.group(1)  #document id 
+        value = match.group(2)  #content 
+        words = value.split()
+        for word in words:
+            print("{}\t{}".format(word.lower(), key))
