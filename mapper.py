@@ -2,7 +2,6 @@
 import sys
 import re
 
-#pattern to match key-value pairs
 pattern = r'(\w+),(.+)'
 
 for line in sys.stdin:
